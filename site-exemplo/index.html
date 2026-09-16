@@ -95,30 +95,19 @@
   .alt-bg{ background: var(--blush); }
 
   /* ===== GALLERY (mosaic) ===== */
-  .gallery{
-    display:grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: 120px;
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 14px;
-  }
-  .gallery figure{
-    overflow:hidden; border-radius: 4px; background: var(--line);
-    position:relative;
-  }
-  .gallery figure img{ width:100%; height:100%; object-fit:cover; }
-  .g1{ grid-column: span 3; grid-row: span 3; }
-  .g2{ grid-column: span 3; grid-row: span 2; }
-  .g3{ grid-column: span 2; grid-row: span 2; }
-  .g4{ grid-column: span 2; grid-row: span 2; }
-  .g5{ grid-column: span 2; grid-row: span 2; }
-  .g6{ grid-column: span 3; grid-row: span 3; }
-  .g7{ grid-column: span 3; grid-row: span 2; }
-  .placeholder-ph{
-    width:100%; height:100%;
-    display:flex; align-items:center; justify-content:center;
-    color: var(--wine); font-size:.85rem; text-align:center; padding: 8px;
-    background: linear-gradient(135deg, #efd9d9, #f7ecea);
-  }
+}
+
+.gallery img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
 
   /* ===== ABOUT ===== */
   .about{
@@ -322,13 +311,14 @@
   <h2 class="section-title">Trabalhos recentes</h2>
   <p class="section-sub">Uma seleção de esmaltações e nail arts feitas no estúdio. Troque cada bloco abaixo pela foto real do trabalho.</p>
   <div class="gallery">
-    <figure class="g1"><div class="placeholder-ph">foto 1<br>(destaque)</div></figure>
-    <figure class="g2"><div class="placeholder-ph">foto 2</div></figure>
-    <figure class="g3"><div class="placeholder-ph">foto 3</div></figure>
-    <figure class="g4"><div class="placeholder-ph">foto 4</div></figure>
-    <figure class="g5"><div class="placeholder-ph">foto 5</div></figure>
-    <figure class="g6"><div class="placeholder-ph">foto 6</div></figure>
-    <figure class="g7"><div class="placeholder-ph">foto 7</div></figure>
+    
+        <img src="unha-1.webp" alt="Unha 1">
+        <img src="unha-2.webp" alt="Unha 1">
+        <img src="unha-3.webp" alt="Unha 1">
+        <img src="unha-4.webp" alt="Unha 1">
+        <img src="unha-5.webp" alt="Unha 1">
+        <img src="unha-6.webp" alt="Unha 1">
+        <img src="unha-7.webp" alt="Unha 1">
   </div>
 </section>
 
