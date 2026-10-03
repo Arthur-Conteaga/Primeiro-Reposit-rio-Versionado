@@ -3,12 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>[Nome da Nail Designer] — Nail Design</title>
+<title>BieliiBeauty — Nail Design</title>
+<meta name="description" content="Nail design com identidade própria. Veja os trabalhos e agende seu horário pelo WhatsApp.">
+<meta property="og:title" content="BieliiBeauty — Nail Design">
+<meta property="og:description" content="Nail design com identidade própria. Veja os trabalhos e agende seu horário pelo WhatsApp.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
+<!-- Estilos: todo o visual do site (layout, cores, tipografia e responsividade) está em css/style.css -->
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -16,8 +20,7 @@
 <!-- ===== MENU DO TOPO (logo + links + ícones de contato) ===== -->
 <nav>
   <div class="brand">
-    <!-- Troque pela logo real: <img src="logo.png" alt="[Nome]"> -->
-    <img src = "LOGO_OFICIAL_SEM_FUNDO.png" alt = "BieliiBeauty" style="width: 100px; height:auto;">
+    <img src="LOGO_OFICIAL_SEM_FUNDO.png" alt="BieliiBeauty">
   </div>
   <div class="nav-links">
     <a href="#galeria">Galeria</a>
@@ -26,10 +29,10 @@
     <a href="#contato">Contato</a>
   </div>
   <div class="nav-icons">
-    <a class="icon-btn" href="https://instagram.com/bieliibeauty" target="_blank" aria-label="Instagram">
+    <a class="icon-btn" href="https://instagram.com/bieliibeauty" target="_blank" rel="noopener" aria-label="Instagram">
       <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 2 .25 2.4.42.6.24 1 .53 1.5 1s.76.9 1 1.5c.17.4.36 1.2.42 2.4.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 2-.42 2.4-.24.6-.53 1-1 1.5s-.9.76-1.5 1c-.4.17-1.2.36-2.4.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-2-.25-2.4-.42-.6-.24-1-.53-1.5-1s-.76-.9-1-1.5c-.17-.4-.36-1.2-.42-2.4C2.21 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-2 .42-2.4.24-.6.53-1 1-1.5s.9-.76 1.5-1c.4-.17 1.2-.36 2.4-.42C8.4 2.21 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.52 0-4.76.07-1 .05-1.5.2-1.86.34-.47.18-.8.4-1.15.75s-.57.68-.75 1.15c-.14.36-.29.86-.34 1.86C3.07 8.48 3.06 8.85 3.06 12s0 3.52.07 4.76c.05 1 .2 1.5.34 1.86.18.47.4.8.75 1.15s.68.57 1.15.75c.36.14.86.29 1.86.34 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.07c1-.05 1.5-.2 1.86-.34.47-.18.8-.4 1.15-.75s.57-.68.75-1.15c.14-.36.29-.86.34-1.86.06-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.05-1-.2-1.5-.34-1.86a2.9 2.9 0 0 0-.75-1.15 2.9 2.9 0 0 0-1.15-.75c-.36-.14-.86-.29-1.86-.34C15.52 4 15.15 4 12 4zm0 3.6a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8zm0 1.8a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 0 0 0-5.2zm4.6-2a1.03 1.03 0 1 1 0 2.06 1.03 1.03 0 0 1 0-2.06z"/></svg>
     </a>
-    <a class="icon-btn" href="https://wa.me/5585987412966" target="_blank" aria-label="WhatsApp">
+    <a class="icon-btn" href="https://wa.me/5585987412966" target="_blank" rel="noopener" aria-label="WhatsApp">
       <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.15-1.7-.85-2-.95-.25-.1-.45-.15-.65.15s-.75.95-.9 1.15c-.17.2-.33.22-.62.07-.3-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.03-.17-.3-.02-.46.13-.6.13-.13.3-.33.44-.5.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.65-1.58-.9-2.16-.24-.58-.48-.5-.65-.5h-.56c-.2 0-.5.07-.77.37s-1.02 1-1.02 2.44 1.05 2.83 1.2 3.03c.15.2 2.06 3.15 5 4.4.7.3 1.24.48 1.67.62.7.22 1.34.19 1.84.12.56-.08 1.7-.7 1.95-1.37.24-.68.24-1.26.17-1.37-.07-.12-.27-.2-.57-.35zM12.02 2C6.5 2 2.05 6.44 2.05 12c0 1.85.5 3.6 1.4 5.1L2 22l5.05-1.32A9.9 9.9 0 0 0 12.02 22C17.55 22 22 17.55 22 12S17.55 2 12.02 2zm0 18.1c-1.67 0-3.24-.46-4.6-1.27l-.33-.2-3 .78.8-2.92-.2-.34a8.14 8.14 0 0 1-1.24-4.35c0-4.5 3.66-8.16 8.17-8.16 4.5 0 8.16 3.66 8.16 8.16s-3.66 8.3-8.16 8.3z"/></svg>
     </a>
     <button class="icon-btn" onclick="openBookingModal()" aria-label="Agendar pelo site">
@@ -43,36 +46,36 @@
     <h1>Unhas com<br>identidade própria</h1>
     <p class="tag">Nail design em [Cidade / Bairro]. Cada esmaltação é pensada pra combinar com você — do clássico ao mais ousado.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="https://wa.me/5585987412966?text=Oi!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20agendar%20um%20hor%C3%A1rio" target="_blank">WhatsApp</a>
-      <a class="btn btn-outline" href="https://instagram.com/bieliibeauty" target="_blank">Instagram</a>
+      <a class="btn btn-primary" href="https://wa.me/5585987412966?text=Oi!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20agendar%20um%20hor%C3%A1rio" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-outline" href="https://instagram.com/bieliibeauty" target="_blank" rel="noopener">Instagram</a>
       <button class="btn btn-outline" onclick="openBookingModal()">Agendar pelo site</button>
     </div>
   </div>
-  <div class="swatches" id="swatches"></div>
+  <div class="swatches" id="swatches" aria-hidden="true"></div>
 </section>
 
-<!-- ===== GALERIA DE FOTOS (troque os placeholders pelas fotos reais dos trabalhos) ===== -->
+<!-- ===== GALERIA DE FOTOS ===== -->
 <section id="galeria" class="wrap">
   <h2 class="section-title">Trabalhos recentes</h2>
-  <p class="section-sub">Uma seleção de esmaltações e nail arts feitas no estúdio. Troque cada bloco abaixo pela foto real do trabalho.</p>
+  <p class="section-sub">Uma seleção de esmaltações e nail arts feitas no estúdio.</p>
   <div class="gallery">
-    
-        <img src="unha-1.webp" alt="Unha 1">
-        <img src="unha-2.webp" alt="Unha 1">
-        <img src="unha-3.webp" alt="Unha 1">
-        <img src="unha-4.webp" alt="Unha 1">
-        <img src="unha-5.webp" alt="Unha 1">
-        <img src="unha-6.webp" alt="Unha 1">
-        <img src="unha-7.webp" alt="Unha 1">
+    <!-- Troque o alt de cada foto por uma descrição real (ex.: "Francesinha com glitter") -->
+    <img src="unha-1.webp" alt="Trabalho de nail design 1" loading="lazy">
+    <img src="unha-2.webp" alt="Trabalho de nail design 2" loading="lazy">
+    <img src="unha-3.webp" alt="Trabalho de nail design 3" loading="lazy">
+    <img src="unha-4.webp" alt="Trabalho de nail design 4" loading="lazy">
+    <img src="unha-5.webp" alt="Trabalho de nail design 5" loading="lazy">
+    <img src="unha-6.webp" alt="Trabalho de nail design 6" loading="lazy">
+    <img src="unha-7.webp" alt="Trabalho de nail design 7" loading="lazy">
   </div>
 </section>
 
-<!-- ===== SOBRE (a lista de especialidades é preenchida automaticamente a partir de SERVICES) ===== -->
+<!-- ===== SOBRE (a lista de serviços e preços é preenchida automaticamente a partir de SERVICES no script.js) ===== -->
 <section id="sobre" class="alt-bg">
   <div class="wrap about">
     <div>
       <h2 class="section-title">Sobre</h2>
-      <p class="section-sub">Conte aqui, em 3–4 frases, sua trajetória: há quanto tempo trabalha com unhas, onde estudou/se especializou e o que te diferencia no atendimento.</p>
+      <p class="section-sub">[Conte aqui, em 3–4 frases, sua trajetória: há quanto tempo trabalha com unhas, onde estudou/se especializou e o que te diferencia no atendimento.]</p>
     </div>
     <div>
       <ul class="specialties" id="about-specialties"></ul>
@@ -82,7 +85,6 @@
 
 <section id="depoimentos" class="wrap">
   <h2 class="section-title">O que dizem as clientes</h2>
-  <p class="section-sub">Prints ou textos de clientes reais funcionam muito bem aqui — pode substituir por depoimentos coletados do Instagram/WhatsApp.</p>
   <div class="testimonials">
     <div class="t-card"><p>"Depoimento de uma cliente sobre o atendimento e resultado."</p><span>— Nome da cliente</span></div>
     <div class="t-card"><p>"Outro depoimento, pode ser sobre a durabilidade do trabalho."</p><span>— Nome da cliente</span></div>
@@ -90,14 +92,14 @@
   </div>
 </section>
 
-<!-- ===== CONTATO (os 3 mesmos botões de sempre: WhatsApp, Instagram, Agendar) ===== -->
+<!-- ===== CONTATO ===== -->
 <section id="contato" class="alt-bg contact">
   <div class="wrap">
     <h2 class="section-title">Vamos marcar seu horário?</h2>
     <p class="section-sub" style="margin-left:auto;margin-right:auto;">Atendimento em [Bairro/Cidade], por hora marcada.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="https://wa.me/55SEUNUMERO?text=Oi!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20agendar%20um%20hor%C3%A1rio" target="_blank">WhatsApp</a>
-      <a class="btn btn-outline" href="https://instagram.com/bieliibeauty" target="_blank">Instagram</a>
+      <a class="btn btn-primary" href="https://wa.me/5585987412966?text=Oi!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20agendar%20um%20hor%C3%A1rio" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-outline" href="https://instagram.com/bieliibeauty" target="_blank" rel="noopener">Instagram</a>
       <button class="btn btn-outline" onclick="openBookingModal()">Agendar pelo site</button>
     </div>
     <p class="info">[Endereço ou bairro de atendimento] · [Dias/horários de atendimento]</p>
@@ -105,36 +107,35 @@
 </section>
 
 <footer>
-  <p>&copy; <span id="year"></span> [Nome]. Todos os direitos reservados.</p>
-  <!-- Link discreto de acesso da profissional. Só aparece de fato ao acessar o site com ?admin=1 na URL -->
+  <p>&copy; <span id="year"></span> BieliiBeauty. Todos os direitos reservados.</p>
 </footer>
 
-<a class="whats-float" href="https://wa.me/55SEUNUMERO?text=Oi!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20agendar%20um%20hor%C3%A1rio" target="_blank" aria-label="Chamar no WhatsApp">
+<a class="whats-float" href="https://wa.me/5585987412966?text=Oi!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20agendar%20um%20hor%C3%A1rio" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.15-1.7-.85-2-.95-.25-.1-.45-.15-.65.15s-.75.95-.9 1.15c-.17.2-.33.22-.62.07-.3-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.03-.17-.3-.02-.46.13-.6.13-.13.3-.33.44-.5.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.65-1.58-.9-2.16-.24-.58-.48-.5-.65-.5h-.56c-.2 0-.5.07-.77.37s-1.02 1-1.02 2.44 1.05 2.83 1.2 3.03c.15.2 2.06 3.15 5 4.4.7.3 1.24.48 1.67.62.7.22 1.34.19 1.84.12.56-.08 1.7-.7 1.95-1.37.24-.68.24-1.26.17-1.37-.07-.12-.27-.2-.57-.35zM12.02 2C6.5 2 2.05 6.44 2.05 12c0 1.85.5 3.6 1.4 5.1L2 22l5.05-1.32A9.9 9.9 0 0 0 12.02 22C17.55 22 22 17.55 22 12S17.55 2 12.02 2zm0 18.1c-1.67 0-3.24-.46-4.6-1.27l-.33-.2-3 .78.8-2.92-.2-.34a8.14 8.14 0 0 1-1.24-4.35c0-4.5 3.66-8.16 8.17-8.16 4.5 0 8.16 3.66 8.16 8.16s-3.66 8.3-8.16 8.3z"/></svg>
 </a>
 
-<!-- ===================== MODAL: FORMULÁRIO DE AGENDAMENTO (para clientes) ===================== -->
-<div class="modal-overlay" id="booking-modal">
+<!-- ===================== MODAL: FORMULÁRIO DE AGENDAMENTO ===================== -->
+<div class="modal-overlay" id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title">
   <div class="modal-box">
     <button class="modal-close" onclick="closeBookingModal()" aria-label="Fechar">&times;</button>
-    <h3>Agendar horário</h3>
-    <p class="modal-sub">Escolha os serviços desejados. Vamos gerar seu pedido e enviar para confirmação.</p>
+    <h3 id="booking-title">Agendar horário</h3>
+    <p class="modal-sub">Escolha os serviços desejados. Ao enviar, o WhatsApp abre com seu pedido pronto para você mandar.</p>
 
     <div class="services-list" id="services-list"></div>
 
     <div class="total-row">
       <span>Total estimado</span>
-      <span id="total-price">R$ 0</span>
+      <span id="total-price">R$ 0,00</span>
     </div>
 
     <div class="field-row">
       <div class="field">
         <label for="c-nome">Seu nome</label>
-        <input type="text" id="c-nome" placeholder="Nome completo">
+        <input type="text" id="c-nome" placeholder="Nome completo" autocomplete="name">
       </div>
       <div class="field">
         <label for="c-tel">WhatsApp</label>
-        <input type="tel" id="c-tel" placeholder="(85) 9....">
+        <input type="tel" id="c-tel" placeholder="(85) 9...." inputmode="tel" autocomplete="tel">
       </div>
     </div>
     <div class="field-row">
@@ -152,32 +153,12 @@
       <textarea id="c-obs" placeholder="Alguma preferência de cor, alergia, etc."></textarea>
     </div>
 
-    <button class="btn-submit" id="submit-btn" onclick="submitBooking()">Enviar pedido de agendamento</button>
+    <button class="btn-submit" onclick="submitBooking()">Enviar pelo WhatsApp</button>
     <div class="form-msg" id="form-msg"></div>
   </div>
 </div>
 
-<!-- ===================== MODAL: PAINEL DA PROFISSIONAL (gerenciar serviços) ===================== -->
-<div class="modal-overlay" id="admin-modal">
-  <div class="modal-box admin-box">
-    <button class="modal-close" onclick="closeAdminModal()" aria-label="Fechar">&times;</button>
-    <h3>Gerenciar serviços</h3>
-    <div class="admin-note">
-      Este site não tem banco de dados. As alterações feitas aqui valem só nesta sessão do seu navegador.
-      Ao terminar, clique em "Copiar código atualizado" e cole no lugar do array <code>SERVICES</code> no arquivo do site
-      (ou envie o código pra quem cuida do site atualizar pra você).
-    </div>
-    <div id="admin-services-list"></div>
-    <div class="admin-add-row">
-      <input type="text" id="admin-new-name" placeholder="Nome do serviço">
-      <input type="text" id="admin-new-price" class="price" placeholder="Preço (R$)">
-      <button onclick="adminAddService()">Adicionar</button>
-    </div>
-    <button class="btn-copy" onclick="copyServicesCode()">Copiar código atualizado</button>
-    <textarea class="code-output" id="code-output" readonly></textarea>
-  </div>
-</div>
-
+<!-- Scripts: toda a lógica (lista de serviços, total e envio do pedido pelo WhatsApp) está em js/script.js -->
 <script src="js/script.js"></script>
 </body>
 </html>
