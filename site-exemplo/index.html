@@ -523,7 +523,7 @@
 ${cart.map(id => '• ' + label(ALL[id]) + ' - ' + brl(ALL[id].price)).join('\n')}
 
  *Total estimado:* ${brl(cartTotal())}` +
-(obs ? `\n\n📝 *Observações:* ${obs}` : '') +
+(obs ? `\n\n *Observações:* ${obs}` : '') +
 `\n\nAguardo a confirmação. Obrigada!`;
 
             const url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
