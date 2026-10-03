@@ -1,164 +1,577 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BieliiBeauty — Nail Design</title>
-<meta name="description" content="Nail design com identidade própria. Veja os trabalhos e agende seu horário pelo WhatsApp.">
-<meta property="og:title" content="BieliiBeauty — Nail Design">
-<meta property="og:description" content="Nail design com identidade própria. Veja os trabalhos e agende seu horário pelo WhatsApp.">
-<meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bielii Beauty - Portfólio de Serviços</title>
+    <meta name="description" content="Manicure, pedicure, gel e alongamento com atendimento a domicílio. Veja os serviços, monte seu pedido e agende pelo WhatsApp.">
+    <meta property="og:title" content="Bielii Beauty - Portfólio de Serviços">
+    <meta property="og:description" content="Manicure, pedicure, gel e alongamento com atendimento a domicílio. Monte seu pedido e agende pelo WhatsApp.">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        bielii: {
+                            light: '#FAF7F5',
+                            dark: '#6B1B26',   // Vinho/Bordô escuro da logo
+                            accent: '#D4AF37', // Dourado suave para detalhes
+                            text: '#2D3748',
+                            card: '#FFFFFF'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FAF7F5;
+            color: #2D3748;
+            line-height: 1.6;
+        }
+        .text-bielii-dark { color: #6B1B26; }
+        .bg-bielii-dark { background-color: #6B1B26; }
+        .border-bielii-dark { border-color: #6B1B26; }
 
-<!-- Estilos: todo o visual do site (layout, cores, tipografia e responsividade) está em css/style.css -->
-<link rel="stylesheet" href="css/style.css">
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in-up { animation: none; opacity: 1; transform: none; }
+            #cart-drawer { transition: none; }
+        }
+
+        .service-row:hover {
+            background-color: rgba(107, 27, 38, 0.03);
+            border-left-color: #6B1B26;
+        }
+
+        /* Botão "Adicionar" muda de aparência quando o serviço já está no carrinho */
+        .add-btn { border: 1.5px solid #6B1B26; color: #6B1B26; background: transparent; }
+        .add-btn:hover { background: rgba(107, 27, 38, 0.06); }
+        .add-btn.in-cart { background: #6B1B26; color: #fff; }
+
+        :focus-visible { outline: 2px solid #6B1B26; outline-offset: 2px; }
+    </style>
 </head>
-<body>
+<body class="font-sans antialiased selection:bg-bielii-dark selection:text-white">
 
-<!-- ===== MENU DO TOPO (logo + links + ícones de contato) ===== -->
-<nav>
-  <div class="brand">
-    <img src="LOGO_OFICIAL_SEM_FUNDO.png" alt="BieliiBeauty">
-  </div>
-  <div class="nav-links">
-    <a href="#galeria">Galeria</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#depoimentos">Depoimentos</a>
-    <a href="#contato">Contato</a>
-  </div>
-  <div class="nav-icons">
-    <a class="icon-btn" href="https://instagram.com/bieliibeauty" target="_blank" rel="noopener" aria-label="Instagram">
-      <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 2 .25 2.4.42.6.24 1 .53 1.5 1s.76.9 1 1.5c.17.4.36 1.2.42 2.4.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 2-.42 2.4-.24.6-.53 1-1 1.5s-.9.76-1.5 1c-.4.17-1.2.36-2.4.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-2-.25-2.4-.42-.6-.24-1-.53-1.5-1s-.76-.9-1-1.5c-.17-.4-.36-1.2-.42-2.4C2.21 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-2 .42-2.4.24-.6.53-1 1-1.5s.9-.76 1.5-1c.4-.17 1.2-.36 2.4-.42C8.4 2.21 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.52 0-4.76.07-1 .05-1.5.2-1.86.34-.47.18-.8.4-1.15.75s-.57.68-.75 1.15c-.14.36-.29.86-.34 1.86C3.07 8.48 3.06 8.85 3.06 12s0 3.52.07 4.76c.05 1 .2 1.5.34 1.86.18.47.4.8.75 1.15s.68.57 1.15.75c.36.14.86.29 1.86.34 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.07c1-.05 1.5-.2 1.86-.34.47-.18.8-.4 1.15-.75s.57-.68.75-1.15c.14-.36.29-.86.34-1.86.06-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.05-1-.2-1.5-.34-1.86a2.9 2.9 0 0 0-.75-1.15 2.9 2.9 0 0 0-1.15-.75c-.36-.14-.86-.29-1.86-.34C15.52 4 15.15 4 12 4zm0 3.6a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8zm0 1.8a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 0 0 0-5.2zm4.6-2a1.03 1.03 0 1 1 0 2.06 1.03 1.03 0 0 1 0-2.06z"/></svg>
-    </a>
-    <a class="icon-btn" href="https://wa.me/5585998628314" target="_blank" rel="noopener" aria-label="WhatsApp">
-      <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.15-1.7-.85-2-.95-.25-.1-.45-.15-.65.15s-.75.95-.9 1.15c-.17.2-.33.22-.62.07-.3-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.03-.17-.3-.02-.46.13-.6.13-.13.3-.33.44-.5.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.65-1.58-.9-2.16-.24-.58-.48-.5-.65-.5h-.56c-.2 0-.5.07-.77.37s-1.02 1-1.02 2.44 1.05 2.83 1.2 3.03c.15.2 2.06 3.15 5 4.4.7.3 1.24.48 1.67.62.7.22 1.34.19 1.84.12.56-.08 1.7-.7 1.95-1.37.24-.68.24-1.26.17-1.37-.07-.12-.27-.2-.57-.35zM12.02 2C6.5 2 2.05 6.44 2.05 12c0 1.85.5 3.6 1.4 5.1L2 22l5.05-1.32A9.9 9.9 0 0 0 12.02 22C17.55 22 22 17.55 22 12S17.55 2 12.02 2zm0 18.1c-1.67 0-3.24-.46-4.6-1.27l-.33-.2-3 .78.8-2.92-.2-.34a8.14 8.14 0 0 1-1.24-4.35c0-4.5 3.66-8.16 8.17-8.16 4.5 0 8.16 3.66 8.16 8.16s-3.66 8.3-8.16 8.3z"/></svg>
-    </a>
-    <button class="icon-btn" onclick="openBookingModal()" aria-label="Agendar pelo site">
-      <svg viewBox="0 0 24 24"><path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zM5 9h14v9H5V9z"/></svg>
+    <!-- Header -->
+    <header class="fixed w-full bg-bielii-light/95 backdrop-blur-sm z-50 border-b border-bielii-dark/5">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="image_08d840.png" alt="Bielii Beauty Logo" class="h-10 w-auto object-contain" onerror="this.src='https://placehold.co/100x100/6B1B26/FAF7F5?text=BB'">
+                <span class="font-serif text-xl font-semibold text-bielii-dark tracking-wide">Bielii Beauty</span>
+            </div>
+            <nav class="hidden md:flex gap-8 font-medium text-sm text-gray-600">
+                <a href="#apresentacao" class="hover:text-bielii-dark transition-colors">Apresentação</a>
+                <a href="#servicos" class="hover:text-bielii-dark transition-colors">Guia de Serviços e Valores</a>
+                <a href="#galeria" class="hover:text-bielii-dark transition-colors">Trabalhos</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <button type="button" class="open-cart relative text-bielii-dark text-xl" aria-label="Abrir carrinho">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-count absolute -top-2 -right-3 min-w-[1.25rem] h-5 px-1 rounded-full bg-bielii-dark text-white text-[11px] font-semibold flex items-center justify-center hidden">0</span>
+                </button>
+                <button class="md:hidden text-bielii-dark text-xl" aria-label="Menu" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-bielii-dark/5 pb-4 shadow-lg absolute w-full">
+            <a href="#apresentacao" class="block px-6 py-3 text-gray-600 hover:bg-bielii-light hover:text-bielii-dark">Apresentação</a>
+            <a href="#servicos" class="block px-6 py-3 text-gray-600 hover:bg-bielii-light hover:text-bielii-dark">Guia de Serviços e Valores</a>
+            <a href="#galeria" class="block px-6 py-3 text-gray-600 hover:bg-bielii-light hover:text-bielii-dark">Trabalhos</a>
+        </div>
+    </header>
+
+    <!-- Apresentação -->
+    <section id="apresentacao" class="pt-32 pb-16 px-6">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/2 fade-in-up">
+                <h1 class="font-serif text-4xl md:text-5xl text-bielii-dark mb-6 leading-tight">Portfólio de<br>Especialidades</h1>
+                <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                    Apresentamos o catálogo de serviços da Bielii Beauty. Cada procedimento foi cuidadosamente estruturado combinando técnicas modernas, como a cutilagem combinada, e produtos de alta qualidade para garantir a melhor experiência em cuidado e estética para suas unhas.
+                </p>
+                <p class="text-sm text-gray-500 italic border-l-2 border-bielii-dark/30 pl-4 py-1 mb-8">
+                    Conheça abaixo os detalhes e investimentos de cada serviço oferecido.
+                </p>
+                <a href="#servicos" class="inline-flex items-center gap-2 bg-bielii-dark text-white px-7 py-3 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
+                    Escolher serviços <i class="fa-solid fa-arrow-down text-xs"></i>
+                </a>
+            </div>
+            <div class="md:w-1/2 fade-in-up" style="animation-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=800&auto=format&fit=crop" alt="Cuidados com as unhas" class="w-full h-[400px] object-cover rounded-2xl shadow-sm border border-black/5">
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços e Valores (a lista é desenhada pelo script a partir de CATEGORIES, lá embaixo) -->
+    <section id="servicos" class="py-20 bg-white px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <span class="text-sm font-semibold tracking-widest text-bielii-accent uppercase mb-2 block">Guia Completo</span>
+                <h2 class="font-serif text-3xl md:text-4xl text-bielii-dark mb-4">Serviços & Valores</h2>
+                <div class="w-16 h-[2px] bg-bielii-dark mx-auto opacity-30 mb-6"></div>
+                <p class="text-sm text-gray-500">Toque em <strong class="font-medium text-gray-700">Adicionar</strong> nos serviços que quiser e finalize no carrinho.</p>
+            </div>
+
+            <div class="space-y-12" id="services-root"></div>
+        </div>
+    </section>
+
+    <!-- Galeria de Imagens -->
+    <section id="galeria" class="py-20 bg-bielii-light px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12 fade-in-up">
+                <span class="text-sm font-semibold tracking-widest text-bielii-accent uppercase mb-2 block">Portfólio Visual</span>
+                <h2 class="font-serif text-3xl md:text-4xl text-bielii-dark mb-2">Trabalhos Realizados</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="fade-in-up">
+                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=800&auto=format&fit=crop" alt="Acabamento em unhas" loading="lazy" class="w-full h-72 object-cover rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                </div>
+                <div class="fade-in-up" style="animation-delay: 0.1s;">
+                    <img src="https://images.unsplash.com/photo-1599839619722-39751411ea63?q=80&w=800&auto=format&fit=crop" alt="Esmaltação perfeita" loading="lazy" class="w-full h-72 object-cover rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                </div>
+                <div class="fade-in-up" style="animation-delay: 0.2s;">
+                    <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?q=80&w=800&auto=format&fit=crop" alt="Unhas com brilho" loading="lazy" class="w-full h-72 object-cover rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                </div>
+                <div class="fade-in-up lg:col-span-2">
+                    <img src="https://images.unsplash.com/photo-1589139265935-778844883395?q=80&w=1200&auto=format&fit=crop" alt="Detalhe unhas alongadas" loading="lazy" class="w-full h-72 object-cover rounded-2xl shadow-sm hover:shadow-md transition-shadow object-center">
+                </div>
+                <div class="fade-in-up">
+                    <img src="https://images.unsplash.com/photo-1512496015851-a1cbfc3a2a07?q=80&w=800&auto=format&fit=crop" alt="Cuidado com as mãos" loading="lazy" class="w-full h-72 object-cover rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="bg-bielii-dark text-white py-12 px-6 border-t-4 border-bielii-accent">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+
+            <div class="text-center md:text-left">
+                <h2 class="font-serif text-2xl mb-2 text-bielii-light">Bielii Beauty</h2>
+                <p class="text-white/70 text-sm">Portfólio de Serviços Profissionais</p>
+            </div>
+
+            <div class="bg-white/5 p-5 rounded-xl border border-white/10 max-w-sm">
+                <div class="flex items-center gap-3 mb-2">
+                    <i class="fa-solid fa-car text-bielii-accent"></i>
+                    <h3 class="font-serif text-lg text-bielii-light">Atendimento a Domicílio</h3>
+                </div>
+                <p class="text-sm text-white/80 leading-relaxed">
+                    Deslocamento incluso em raio de até <strong>5 km</strong>. Após essa distância, taxas de deslocamento podem ser aplicadas.
+                </p>
+            </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto mt-12 pt-6 border-t border-white/10 text-center text-xs text-white/60 flex flex-col md:flex-row justify-between items-center gap-3">
+            <p>&copy; <span id="year"></span> Bielii Beauty.</p>
+            <div class="flex items-center gap-5">
+                <a href="https://instagram.com/bieliibeauty" target="_blank" rel="noopener" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram mr-1"></i> @bieliibeauty</a>
+                <a href="https://wa.me/5585998628314" target="_blank" rel="noopener" class="hover:text-white transition-colors"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão flutuante do carrinho -->
+    <button type="button" class="open-cart fixed bottom-6 right-6 z-40 h-14 w-14 rounded-full bg-bielii-dark text-white shadow-lg flex items-center justify-center hover:scale-105 transition-transform" aria-label="Abrir carrinho">
+        <i class="fa-solid fa-bag-shopping text-xl"></i>
+        <span class="cart-count absolute -top-1 -right-1 min-w-[1.4rem] h-[1.4rem] px-1 rounded-full bg-bielii-accent text-bielii-dark text-xs font-semibold flex items-center justify-center hidden">0</span>
     </button>
-  </div>
-</nav>
 
-<section class="hero">
-  <div>
-    <h1>Unhas com<br>identidade própria</h1>
-    <p class="tag">Nail design em [Cidade / Bairro]. Cada esmaltação é pensada pra combinar com você — do clássico ao mais ousado.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="https://wa.me/5585998628314?text=Oi!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20agendar%20um%20hor%C3%A1rio" target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn btn-outline" href="https://instagram.com/bieliibeauty" target="_blank" rel="noopener">Instagram</a>
-      <button class="btn btn-outline" onclick="openBookingModal()">Agendar pelo site</button>
-    </div>
-  </div>
-  <div class="swatches" id="swatches" aria-hidden="true"></div>
-</section>
+    <!-- ===================== CARRINHO (painel lateral) ===================== -->
+    <div id="cart-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden"></div>
 
-<!-- ===== GALERIA DE FOTOS ===== -->
-<section id="galeria" class="wrap">
-  <h2 class="section-title">Trabalhos recentes</h2>
-  <p class="section-sub">Uma seleção de esmaltações e nail arts feitas no estúdio.</p>
-  <div class="gallery">
-    <!-- Troque o alt de cada foto por uma descrição real (ex.: "Francesinha com glitter") -->
-    <img src="unha-1.webp" alt="Trabalho de nail design 1" loading="lazy">
-    <img src="unha-2.webp" alt="Trabalho de nail design 2" loading="lazy">
-    <img src="unha-3.webp" alt="Trabalho de nail design 3" loading="lazy">
-    <img src="unha-4.webp" alt="Trabalho de nail design 4" loading="lazy">
-    <img src="unha-5.webp" alt="Trabalho de nail design 5" loading="lazy">
-    <img src="unha-6.webp" alt="Trabalho de nail design 6" loading="lazy">
-    <img src="unha-7.webp" alt="Trabalho de nail design 7" loading="lazy">
-  </div>
-</section>
+    <aside id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" inert
+           class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-[70] shadow-2xl translate-x-full transition-transform duration-300 flex flex-col">
 
-<!-- ===== SOBRE (a lista de serviços e preços é preenchida automaticamente a partir de SERVICES no script.js) ===== -->
-<section id="sobre" class="alt-bg">
-  <div class="wrap about">
-    <div>
-      <h2 class="section-title">Sobre</h2>
-      <p class="section-sub">[Conte aqui, em 3–4 frases, sua trajetória: há quanto tempo trabalha com unhas, onde estudou/se especializou e o que te diferencia no atendimento.]</p>
-    </div>
-    <div>
-      <ul class="specialties" id="about-specialties"></ul>
-    </div>
-  </div>
-</section>
+        <div class="flex items-center justify-between px-6 py-5 border-b border-gray-100">
+            <h2 id="cart-title" class="font-serif text-2xl text-bielii-dark">Seu pedido</h2>
+            <button type="button" id="cart-close" class="text-gray-500 hover:text-bielii-dark text-xl" aria-label="Fechar carrinho">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
 
-<section id="depoimentos" class="wrap">
-  <h2 class="section-title">O que dizem as clientes</h2>
-  <div class="testimonials">
-    <div class="t-card"><p>"Depoimento de uma cliente sobre o atendimento e resultado."</p><span>— Nome da cliente</span></div>
-    <div class="t-card"><p>"Outro depoimento, pode ser sobre a durabilidade do trabalho."</p><span>— Nome da cliente</span></div>
-    <div class="t-card"><p>"Um terceiro depoimento, sobre a experiência no estúdio."</p><span>— Nome da cliente</span></div>
-  </div>
-</section>
+        <div class="flex-1 overflow-y-auto px-6 py-5">
+            <!-- Carrinho vazio -->
+            <div id="cart-empty" class="text-center py-10">
+                <i class="fa-solid fa-bag-shopping text-4xl text-bielii-dark/30 mb-4"></i>
+                <p class="text-gray-600 mb-4">Seu carrinho está vazio.</p>
+                <a href="#servicos" id="cart-see-services" class="inline-block text-sm font-medium text-bielii-dark underline">Ver serviços</a>
+            </div>
 
-<!-- ===== CONTATO ===== -->
-<section id="contato" class="alt-bg contact">
-  <div class="wrap">
-    <h2 class="section-title">Vamos marcar seu horário?</h2>
-    <p class="section-sub" style="margin-left:auto;margin-right:auto;">Atendimento em [Bairro/Cidade], por hora marcada.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="https://wa.me/5585987412966?text=Oi!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20agendar%20um%20hor%C3%A1rio" target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn btn-outline" href="https://instagram.com/bieliibeauty" target="_blank" rel="noopener">Instagram</a>
-      <button class="btn btn-outline" onclick="openBookingModal()">Agendar pelo site</button>
-    </div>
-    <p class="info">[Endereço ou bairro de atendimento] · [Dias/horários de atendimento]</p>
-  </div>
-</section>
+            <!-- Carrinho com itens -->
+            <div id="cart-filled" class="hidden">
+                <ul id="cart-items" class="divide-y divide-gray-100 mb-6"></ul>
 
-<footer>
-  <p>&copy; <span id="year"></span> BieliiBeauty. Todos os direitos reservados.</p>
-</footer>
+                <h3 class="font-serif text-lg text-bielii-dark mb-3">Seus dados</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label for="c-nome" class="block text-sm font-medium text-gray-700 mb-1">Seu nome</label>
+                        <input type="text" id="c-nome" autocomplete="name" placeholder="Nome completo"
+                               class="w-full rounded-lg border border-gray-200 bg-bielii-light px-3 py-2.5 text-sm">
+                    </div>
+                    <div>
+                        <label for="c-end" class="block text-sm font-medium text-gray-700 mb-1">Endereço ou bairro do atendimento</label>
+                        <input type="text" id="c-end" autocomplete="street-address" placeholder="Rua, número e bairro"
+                               class="w-full rounded-lg border border-gray-200 bg-bielii-light px-3 py-2.5 text-sm">
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label for="c-data" class="block text-sm font-medium text-gray-700 mb-1">Data preferida</label>
+                            <input type="date" id="c-data" class="w-full rounded-lg border border-gray-200 bg-bielii-light px-3 py-2.5 text-sm">
+                        </div>
+                        <div>
+                            <label for="c-hora" class="block text-sm font-medium text-gray-700 mb-1">Horário</label>
+                            <input type="time" id="c-hora" class="w-full rounded-lg border border-gray-200 bg-bielii-light px-3 py-2.5 text-sm">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="c-obs" class="block text-sm font-medium text-gray-700 mb-1">Observações (opcional)</label>
+                        <textarea id="c-obs" rows="3" placeholder="Preferência de cor, alergia, referência de arte..."
+                                  class="w-full rounded-lg border border-gray-200 bg-bielii-light px-3 py-2.5 text-sm resize-y"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<a class="whats-float" href="https://wa.me/5585987412966?text=Oi!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20agendar%20um%20hor%C3%A1rio" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.15-1.7-.85-2-.95-.25-.1-.45-.15-.65.15s-.75.95-.9 1.15c-.17.2-.33.22-.62.07-.3-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.03-.17-.3-.02-.46.13-.6.13-.13.3-.33.44-.5.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.65-1.58-.9-2.16-.24-.58-.48-.5-.65-.5h-.56c-.2 0-.5.07-.77.37s-1.02 1-1.02 2.44 1.05 2.83 1.2 3.03c.15.2 2.06 3.15 5 4.4.7.3 1.24.48 1.67.62.7.22 1.34.19 1.84.12.56-.08 1.7-.7 1.95-1.37.24-.68.24-1.26.17-1.37-.07-.12-.27-.2-.57-.35zM12.02 2C6.5 2 2.05 6.44 2.05 12c0 1.85.5 3.6 1.4 5.1L2 22l5.05-1.32A9.9 9.9 0 0 0 12.02 22C17.55 22 22 17.55 22 12S17.55 2 12.02 2zm0 18.1c-1.67 0-3.24-.46-4.6-1.27l-.33-.2-3 .78.8-2.92-.2-.34a8.14 8.14 0 0 1-1.24-4.35c0-4.5 3.66-8.16 8.17-8.16 4.5 0 8.16 3.66 8.16 8.16s-3.66 8.3-8.16 8.3z"/></svg>
-</a>
+        <div id="cart-footer" class="hidden border-t border-gray-100 px-6 py-5 bg-white">
+            <div class="flex items-center justify-between mb-4">
+                <span class="text-gray-600">Total estimado</span>
+                <span id="cart-total" class="font-serif text-2xl text-bielii-dark font-medium">R$ 0</span>
+            </div>
+            <p id="cart-msg" class="hidden text-sm rounded-lg px-3 py-2 mb-3" role="alert"></p>
+            <button type="button" id="cart-checkout"
+                    class="w-full bg-bielii-dark text-white rounded-full py-3.5 text-sm font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+                <i class="fa-brands fa-whatsapp text-lg"></i> Finalizar pelo WhatsApp
+            </button>
+            <p class="text-xs text-gray-400 text-center mt-3">O WhatsApp abre com o pedido pronto. É só tocar em enviar.</p>
+        </div>
+    </aside>
 
-<!-- ===================== MODAL: FORMULÁRIO DE AGENDAMENTO ===================== -->
-<div class="modal-overlay" id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeBookingModal()" aria-label="Fechar">&times;</button>
-    <h3 id="booking-title">Agendar horário</h3>
-    <p class="modal-sub">Escolha os serviços desejados. Ao enviar, o WhatsApp abre com seu pedido pronto para você mandar.</p>
+    <script>
+        /* =======================================================================
+           CONFIGURAÇÃO — edite só aqui para mudar número, serviços e preços
+           ======================================================================= */
 
-    <div class="services-list" id="services-list"></div>
+        // WhatsApp que recebe os pedidos: país + DDD + número, só dígitos, sem "+".
+        const WHATSAPP_NUMBER = '5585998628314';
 
-    <div class="total-row">
-      <span>Total estimado</span>
-      <span id="total-price">R$ 0,00</span>
-    </div>
+        // Categorias e serviços. Para editar um preço ou texto, mude direto aqui.
+        // "id" precisa ser único e sem espaços. "tag" é o texto pequeno ao lado do nome.
+        const CATEGORIES = [
+            {
+                icon: 'fa-seedling',
+                title: 'Manicure & Pedicure Tradicional',
+                items: [
+                    { id: 'mani-trad', name: 'Manicure Tradicional', price: 40,
+                      desc: 'Realizada a cutilagem utilizando a técnica combinada (união da cutilagem russa com o uso de brocas e acabamento com alicate). Finalizada com a aplicação de esmalte tradicional e top coat de efeito gel para maior brilho e durabilidade nas mãos.' },
+                    { id: 'pedi-trad', name: 'Pedicure Tradicional', price: 40,
+                      desc: 'Realizada a cutilagem utilizando a técnica combinada, seguida da aplicação de esmalte tradicional.' },
+                    { id: 'mao-pe-trad', name: 'Mão + Pé (Tradicional)', price: 65,
+                      desc: 'Pacote incluindo os serviços de manicure e pedicure tradicional detalhados acima.' }
+                ]
+            },
+            {
+                icon: 'fa-gem',
+                title: 'Especialidades em Gel & Blindagem',
+                items: [
+                    { id: 'blindagem', name: 'Blindagem', tag: 'Sem esmaltação em gel', price: 65,
+                      desc: 'Ideal para quem busca uma unha natural muito mais resistente contra quebras, mas prefere manter a liberdade de mudar a cor com esmalte tradicional em casa toda semana. Inclui cutilagem combinada e aplicação da camada protetora (blindagem).' },
+                    { id: 'gel-maos', name: 'Esmaltação em Gel (Mãos)', price: 80,
+                      desc: 'Serviço completo de durabilidade prolongada. Inclui a cutilagem combinada, a realização da blindagem para estrutura, e finalização com a esmaltação em gel curada em cabine.' },
+                    { id: 'gel-pes', name: 'Esmaltação em Gel (Pés)', price: 80,
+                      desc: 'Inclui a cutilagem combinada, preparação e a esmaltação em gel de alta durabilidade.' }
+                ]
+            },
+            {
+                icon: 'fa-layer-group',
+                title: 'Combos Especiais',
+                items: [
+                    { id: 'combo-gel-trad', name: 'Mão (Esmaltação em Gel) + Pé (Tradicional)', price: 95,
+                      desc: 'Combinação de alta durabilidade para as mãos (com blindagem e gel) e o cuidado clássico para os pés.' },
+                    { id: 'combo-gel-gel', name: 'Mão e Pé (Esmaltação em Gel)', price: 115,
+                      desc: 'O pacote completo de longa duração, aplicando a técnica de esmaltação em gel tanto nas mãos quanto nos pés.' }
+                ]
+            },
+            {
+                icon: 'fa-wand-magic-sparkles',
+                title: 'Alongamento Soft Gel',
+                items: [
+                    { id: 'along-soft', name: 'Alongamento com Soft Gel', price: 100,
+                      desc: 'Técnica de alongamento que utiliza uma espécie de unha postiça de gel fixada à unha natural. Oferece um resultado natural e resistente, permitindo a realização de até 3 manutenções com gel.' },
+                    { id: 'manut-soft', name: 'Manutenção (Soft Gel)', price: 85,
+                      desc: 'Serviço de preservação e ajuste do alongamento em Soft Gel.' }
+                ]
+            }
+        ];
 
-    <div class="field-row">
-      <div class="field">
-        <label for="c-nome">Seu nome</label>
-        <input type="text" id="c-nome" placeholder="Nome completo" autocomplete="name">
-      </div>
-      <div class="field">
-        <label for="c-tel">WhatsApp</label>
-        <input type="tel" id="c-tel" placeholder="(85) 9...." inputmode="tel" autocomplete="tel">
-      </div>
-    </div>
-    <div class="field-row">
-      <div class="field">
-        <label for="c-data">Data preferida</label>
-        <input type="date" id="c-data">
-      </div>
-      <div class="field">
-        <label for="c-hora">Horário preferido</label>
-        <input type="time" id="c-hora">
-      </div>
-    </div>
-    <div class="field">
-      <label for="c-obs">Observações (opcional)</label>
-      <textarea id="c-obs" placeholder="Alguma preferência de cor, alergia, etc."></textarea>
-    </div>
+        // Remoções: só são feitas junto com um novo procedimento no mesmo atendimento.
+        const REMOVALS = [
+            { id: 'rem-gel', name: 'Remoção de Esmaltação em Gel (externo)', price: 10, removal: true },
+            { id: 'rem-along', name: 'Remoção de Alongamento em Gel (externo)', price: 15, removal: true }
+        ];
 
-    <button class="btn-submit" onclick="submitBooking()">Enviar pelo WhatsApp</button>
-    <div class="form-msg" id="form-msg"></div>
-  </div>
-</div>
+        /* =======================================================================
+           FUNÇÕES AUXILIARES
+           ======================================================================= */
 
-<!-- Scripts: toda a lógica (lista de serviços, total e envio do pedido pelo WhatsApp) está em js/script.js -->
-<script src="js/script.js"></script>
+        // Mapa id -> serviço, para achar rapidamente qualquer item do carrinho
+        const ALL = {};
+        CATEGORIES.forEach(c => c.items.forEach(s => ALL[s.id] = s));
+        REMOVALS.forEach(s => ALL[s.id] = s);
+
+        // 40 vira "R$ 40"; 40.5 vira "R$ 40,50"
+        const brl = v => 'R$ ' + (Number.isInteger(v) ? v : v.toFixed(2).replace('.', ','));
+        const label = s => s.tag ? s.name + ' (' + s.tag + ')' : s.name;
+
+        /* =======================================================================
+           DESENHA A LISTA DE SERVIÇOS NA PÁGINA
+           ======================================================================= */
+        function serviceRow(s){
+            return `
+            <div class="service-row flex flex-col md:flex-row justify-between gap-4 p-5 rounded-xl border-l-4 border-transparent transition-all duration-300">
+                <div class="md:w-3/4">
+                    <h4 class="text-lg font-medium text-gray-800 mb-2">${s.name}${s.tag ? `<span class="text-xs font-normal text-gray-500 uppercase tracking-wider ml-2">(${s.tag})</span>` : ''}</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">${s.desc}</p>
+                </div>
+                <div class="md:w-1/4 flex md:flex-col md:items-end items-center justify-between gap-3 mt-2 md:mt-0">
+                    <span class="font-serif text-2xl text-bielii-dark font-medium"><small class="text-sm mr-1">R$</small>${s.price}</span>
+                    <button type="button" data-add="${s.id}" class="add-btn rounded-full px-5 py-2 text-sm font-medium transition-colors">Adicionar</button>
+                </div>
+            </div>`;
+        }
+
+        function renderServices(){
+            const root = document.getElementById('services-root');
+
+            const cats = CATEGORIES.map((c, i) => `
+                <div class="fade-in-up" style="animation-delay: ${i * 0.1}s;">
+                    <h3 class="font-serif text-2xl text-bielii-dark border-b border-gray-100 pb-3 mb-6 flex items-center gap-3 ${i > 0 ? 'mt-10' : ''}">
+                        <i class="fa-solid ${c.icon} text-lg opacity-70"></i> ${c.title}
+                    </h3>
+                    <div class="space-y-6">${c.items.map(serviceRow).join('')}</div>
+                </div>`).join('');
+
+            const removals = `
+                <div class="fade-in-up border-t border-gray-200 pt-8 mt-12">
+                    <h4 class="text-sm font-bold text-gray-700 uppercase tracking-wider mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-info text-bielii-dark"></i> Política de Remoções
+                    </h4>
+                    <p class="text-sm text-gray-500 mb-4 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                        A remoção de procedimentos não realizados pela nossa equipe é condicionada à realização de um novo procedimento no mesmo atendimento. Valores aplicáveis:
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        ${REMOVALS.map(r => `
+                        <div class="bg-white border border-gray-100 p-4 rounded-xl shadow-sm flex justify-between items-center gap-3">
+                            <span class="text-sm text-gray-700">${r.name}</span>
+                            <span class="flex items-center gap-3 shrink-0">
+                                <span class="font-medium text-bielii-dark">${brl(r.price)}</span>
+                                <button type="button" data-add="${r.id}" class="add-btn rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors">Adicionar</button>
+                            </span>
+                        </div>`).join('')}
+                    </div>
+                </div>`;
+
+            root.innerHTML = cats + removals;
+        }
+
+        /* =======================================================================
+           CARRINHO
+           O carrinho guarda só os ids dos serviços. Fica salvo no navegador
+           (localStorage) para não se perder se a cliente atualizar a página.
+           ======================================================================= */
+        let cart = [];
+        try {
+            const saved = JSON.parse(localStorage.getItem('bielii-cart') || '[]');
+            cart = saved.filter(id => ALL[id]);
+        } catch (e) { cart = []; }
+
+        function saveCart(){
+            try { localStorage.setItem('bielii-cart', JSON.stringify(cart)); } catch (e) {}
+        }
+
+        function toggleItem(id){
+            const i = cart.indexOf(id);
+            if (i === -1) cart.push(id); else cart.splice(i, 1);
+            saveCart();
+            updateCartUI();
+        }
+
+        function cartTotal(){
+            return cart.reduce((sum, id) => sum + ALL[id].price, 0);
+        }
+
+        // Atualiza tudo que depende do carrinho: contador, botões, lista e total
+        function updateCartUI(){
+            // Contador (cabeçalho e botão flutuante)
+            document.querySelectorAll('.cart-count').forEach(el => {
+                el.textContent = cart.length;
+                el.classList.toggle('hidden', cart.length === 0);
+            });
+            document.querySelectorAll('.open-cart').forEach(el => {
+                el.setAttribute('aria-label', 'Abrir carrinho (' + cart.length + (cart.length === 1 ? ' item)' : ' itens)'));
+            });
+
+            // Botões "Adicionar" / "Adicionado"
+            document.querySelectorAll('[data-add]').forEach(btn => {
+                const on = cart.includes(btn.dataset.add);
+                btn.classList.toggle('in-cart', on);
+                btn.textContent = on ? 'Adicionado ✓' : 'Adicionar';
+                btn.setAttribute('aria-pressed', on);
+            });
+
+            // Lista de itens dentro do painel
+            const list = document.getElementById('cart-items');
+            list.innerHTML = cart.map(id => {
+                const s = ALL[id];
+                return `
+                <li class="flex items-start justify-between gap-3 py-3">
+                    <div>
+                        <p class="text-sm font-medium text-gray-800">${label(s)}</p>
+                        <button type="button" data-remove="${id}" class="text-xs text-gray-500 underline mt-1 hover:text-bielii-dark">Remover</button>
+                    </div>
+                    <span class="text-sm font-medium text-bielii-dark whitespace-nowrap">${brl(s.price)}</span>
+                </li>`;
+            }).join('');
+
+            document.getElementById('cart-total').textContent = brl(cartTotal());
+            document.getElementById('cart-empty').classList.toggle('hidden', cart.length > 0);
+            document.getElementById('cart-filled').classList.toggle('hidden', cart.length === 0);
+            document.getElementById('cart-footer').classList.toggle('hidden', cart.length === 0);
+        }
+
+        /* ---------- Abrir / fechar o painel ---------- */
+        const drawer = document.getElementById('cart-drawer');
+        const overlay = document.getElementById('cart-overlay');
+
+        function openCart(){
+            // Não deixa escolher datas que já passaram
+            const h = new Date();
+            document.getElementById('c-data').min = h.getFullYear() + '-' + String(h.getMonth() + 1).padStart(2, '0') + '-' + String(h.getDate()).padStart(2, '0');
+            hideMsg();
+            drawer.inert = false;
+            overlay.classList.remove('hidden');
+            drawer.classList.remove('translate-x-full');
+            document.getElementById('cart-close').focus();
+        }
+        function closeCart(){
+            drawer.classList.add('translate-x-full');
+            overlay.classList.add('hidden');
+            drawer.inert = true;
+        }
+
+        function showMsg(text, type){
+            const el = document.getElementById('cart-msg');
+            el.textContent = text;
+            el.className = 'text-sm rounded-lg px-3 py-2 mb-3 ' + (type === 'ok' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800');
+        }
+        function hideMsg(){
+            document.getElementById('cart-msg').className = 'hidden';
+        }
+
+        /* =======================================================================
+           FINALIZAR: valida, monta a mensagem e abre o WhatsApp com ela pronta
+           ======================================================================= */
+        function checkout(){
+            const nome = document.getElementById('c-nome').value.trim();
+            const end  = document.getElementById('c-end').value.trim();
+            const data = document.getElementById('c-data').value;
+            const hora = document.getElementById('c-hora').value;
+            const obs  = document.getElementById('c-obs').value.trim();
+
+            if (cart.length === 0){ showMsg('Adicione pelo menos um serviço.', 'err'); return; }
+            if (!nome){ showMsg('Informe seu nome.', 'err'); document.getElementById('c-nome').focus(); return; }
+            if (!end){ showMsg('Informe o endereço ou bairro do atendimento.', 'err'); document.getElementById('c-end').focus(); return; }
+
+            // Remoção só é feita junto com outro procedimento
+            if (cart.every(id => ALL[id].removal)){
+                showMsg('A remoção só é feita junto com um novo procedimento. Adicione outro serviço ao pedido.', 'err');
+                return;
+            }
+
+            const dataBR = data ? data.split('-').reverse().join('/') : 'a combinar';
+
+            const msg =
+`Olá! 💅 Meu nome é ${nome} e gostaria de agendar um atendimento a domicílio.
+
+📍 *Endereço:* ${end}
+📅 *Data preferida:* ${dataBR}
+⏰ *Horário preferido:* ${hora || 'a combinar'}
+
+✨ *Serviços:*
+${cart.map(id => '• ' + label(ALL[id]) + ' - ' + brl(ALL[id].price)).join('\n')}
+
+💰 *Total estimado:* ${brl(cartTotal())}` +
+(obs ? `\n\n📝 *Observações:* ${obs}` : '') +
+`\n\nAguardo a confirmação. Obrigada!`;
+
+            const url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
+            const win = window.open(url, '_blank');
+            if (!win) window.location.href = url; // se o navegador bloquear a nova aba
+
+            showMsg('Abrindo o WhatsApp para você enviar o pedido...', 'ok');
+        }
+
+        /* =======================================================================
+           EVENTOS E INICIALIZAÇÃO
+           ======================================================================= */
+        document.addEventListener('click', (e) => {
+            const add = e.target.closest('[data-add]');
+            if (add) { toggleItem(add.dataset.add); return; }
+
+            const rem = e.target.closest('[data-remove]');
+            if (rem) { toggleItem(rem.dataset.remove); return; }
+
+            if (e.target.closest('.open-cart')) { openCart(); return; }
+
+            // Fecha o menu mobile ao tocar em um link
+            if (e.target.closest('#mobile-menu a')) {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            }
+        });
+        document.getElementById('cart-close').addEventListener('click', closeCart);
+        overlay.addEventListener('click', closeCart);
+        document.getElementById('cart-see-services').addEventListener('click', closeCart);
+        document.getElementById('cart-checkout').addEventListener('click', checkout);
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeCart(); });
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        renderServices();
+        updateCartUI();
+
+        // Animações de entrada ao rolar a página (depois que a lista já foi desenhada)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.style.animationPlayState = 'running';
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
