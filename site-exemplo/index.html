@@ -513,16 +513,16 @@
             const dataBR = data ? data.split('-').reverse().join('/') : 'a combinar';
 
             const msg =
-`Olá! 💅 Meu nome é ${nome} e gostaria de agendar um atendimento a domicílio.
+`Olá! Meu nome é ${nome} e gostaria de agendar um atendimento a domicílio.
 
-📍 *Endereço:* ${end}
-📅 *Data preferida:* ${dataBR}
-⏰ *Horário preferido:* ${hora || 'a combinar'}
+ *Endereço:* ${end}
+ *Data preferida:* ${dataBR}
+ *Horário preferido:* ${hora || 'a combinar'}
 
-✨ *Serviços:*
+ *Serviços:*
 ${cart.map(id => '• ' + label(ALL[id]) + ' - ' + brl(ALL[id].price)).join('\n')}
 
-💰 *Total estimado:* ${brl(cartTotal())}` +
+ *Total estimado:* ${brl(cartTotal())}` +
 (obs ? `\n\n📝 *Observações:* ${obs}` : '') +
 `\n\nAguardo a confirmação. Obrigada!`;
 
