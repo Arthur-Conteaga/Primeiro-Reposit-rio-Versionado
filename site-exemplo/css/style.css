@@ -246,10 +246,10 @@
     .swatches{ height: 220px; order:-1; }
     .about{ grid-template-columns: 1fr; }
     .nav-links{ display:none; }
-    .gallery{ grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; }
-    .g1,.g2,.g3,.g4,.g5,.g6,.g7{ grid-column: span 1; grid-row: span 2; }
     .t-card, .t-card:nth-child(even){ align-self:stretch; text-align:left; border-left:3px solid var(--wine); border-right:none; }
     .field-row{ flex-direction:column; }
+    .gallery{ grid-template-columns: repeat(2, 1fr); }
+    .gallery img{ height: 180px; }
   }
 
   :focus-visible{ outline: 2px solid var(--wine-bright); outline-offset: 3px; }
